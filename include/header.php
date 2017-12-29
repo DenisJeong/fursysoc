@@ -39,14 +39,17 @@ switch ($page_code) {
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=950">
         <title><?php echo $page_title;?>Fursys Office Consultant</title>
         <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=3yxATL6l1l0SdfbonQbQ&submodules=geocoder"></script>
         <script src="plugin/jquery/jquery-2.1.1.min.js"></script>
-        <script src="js/common.js"></script>
         <link rel="stylesheet" href="plugin/jquery.bxslider/jquery.bxslider.css">
         <script src="plugin/jquery.bxslider/jquery.bxslider.js"></script>
         <script src="plugin/Chart.js-master/Chart.min.js"></script>
         <script src="plugin/canvas2image/canvas2image.js"></script>
+        <script src="js/common.js"></script>
         <meta name="naver-site-verification" content="053e6e21c2e83d20249ad5eae35181a4da496580"/>
     </head>
 <body class="<?php echo $page_code;?>">
@@ -57,9 +60,6 @@ switch ($page_code) {
         </a>
         <ul class="nav">
             <li>
-                <a href="office-consultant.php">OFFICE CONSULTANT</a>
-            </li>
-            <li>
                 <a href="con-office.php">CONSULTING</a>
             </li>
             <li>
@@ -67,6 +67,9 @@ switch ($page_code) {
             </li>
             <li>
                 <a href="diagnosis.php">사무환경자가진단</a>
+            </li>
+            <li>
+                <a href="http://fursysrental.com" target="_blank">RENTAL</a>
             </li>
             <li>
                 <a href="http://fursysocmall.com" target="_blank">MALL</a>

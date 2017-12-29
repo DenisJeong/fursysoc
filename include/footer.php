@@ -3,7 +3,7 @@
     <div class="comp-info">⒞ 2014. Fursys Office Consultant All rights reserved. And Copyright of 'Fursys Office Consulting' contents is property of FURSYS Inc.. <p>All page contents cannot be copied or captured without permission.                         │T. 070-4800-3599│C. 010-9268-6874 | E. fursysoc@fursysoc.com</p></div>
     <ul class="outer-link">
         <li><a href="#none" onclick="window.open('http://facebook.com/fursysofficeconsultant','width=1920, height=1080, scrolbars=2, resizable=0');"><img src="images/icon_facebook.png" /></a></li>
-        <li><a href="#none" onclick="window.open('http://twitter.com/FursysOC','width=1920, height=1080, scrolbars=2, resizable=0');"><img src="images/icon_twitter.png" /></a></li>
+        <li><a href="#none" onclick="window.open('http://twitter.com/FursysOC','width=1920, height=1080, scrolbars=2, resizable=0');"><img src="images/icon_instagram.png" /></a></li>
         <li><a href="#none" onclick="window.open('http://blog.naver.com/s_o_c','width=1920, height=1080, scrolbars=2, resizable=0');"><img src="images/icon_blog.png" /></a></li>
         <li><a href="#none" onclick="window.open('http://fursysocmall.com','width=1920, height=1080, scrolbars=2, resizable=0');"><img src="images/icon_kart.png" /></a></li>
     </ul>
@@ -35,7 +35,8 @@ document.write(unescape("%3Cscript id='log_script' src='" + JsHost + "chevalier.
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+</script>
 <!-- 페이스북 좋아요 플러그인 완료 -->
 
 </body>

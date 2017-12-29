@@ -1,7 +1,11 @@
 $(document).ready(function() {
 
     //인덱스 슬라이더
-    $('.index .bxslider').bxSlider();
+    $('.index .bxslider').bxSlider({
+        auto: true,
+        pause: 5000,
+        autoHover: true,
+    });
 
     //인덱스 Works 스타일 조정
     $('.index .works li:last').addClass('last');
@@ -16,6 +20,45 @@ $(document).ready(function() {
     //인덱스에서 넘어온 Works에 해당하는 값을 받아, Works 페이지에서 클릭해줌.
     var works_from_index = $('.works input[name=data-slide-index]').val();
     $('.works a[data-slide-index='+works_from_index+']').click();
+
+    //인덱스 스크롤 액션
+/*            $(window).scroll(function(){
+                var num = $('html, body').scrollTop();
+                //console.log(num);
+                if(num >= 50) {
+                    $('.index .works ul').stop().slideDown();
+                    $('.index .oc h2').stop().slideDown();
+                } if(num < 50) {
+                    $('.index .works ul').stop().slideUp();
+                    $('.index .oc h2').stop().slideUp();
+                    $('.index .oc h2 div').stop().slideUp();
+                }
+            });
+            
+            $('.index .works h2').click(function(){
+                $('.index .works ul').stop().slideDown();
+            });
+
+            $('.index .oc h2').click(function(){
+                $('.index .oc div').stop().slideDown();
+            });
+*/
+    //인덱스 탭메뉴
+    $('.btn-tab li').click(function(e) {
+      $(this).addClass('on').siblings().removeClass('on');  
+    });
+    
+    //첫번째 탭내용만 보이기  
+    //$('.txt_wrap .txt:gt(0)').hide();
+    
+    $('.btn-tab li').click(function(e) {
+        e.preventDefault();
+        
+        var num = $(this).index();//클릭요소가 형제요소 중 몇번째 인지
+        //console.log(num);
+        
+        $('.tab-wrap .tab').eq(num).toggle().siblings().hide();
+    });
 
     //준비 중인 기능
     $('.preparing').click(function(){
@@ -66,6 +109,7 @@ $(document).ready(function() {
         var 공간계획_3 = parseInt($('[name="공간계획-3"]:checked').val());
         var 공간계획_4 = parseInt($('[name="공간계획-4"]:checked').val());
         var 공간계획_5 = parseInt($('[name="공간계획-5"]:checked').val());
+
 
         if (공간계획_1 > 0 && 공간계획_2 > 0 && 공간계획_3 > 0 && 공간계획_4 > 0 && 공간계획_5 > 0) {
             $('.step-2').hide();
@@ -138,7 +182,7 @@ $(document).ready(function() {
         var 공간계획_5 = parseInt($('[name="공간계획-5"]:checked').val());
 
         var 공간계획 = 공간계획_1 + 공간계획_2 + 공간계획_3 + 공간계획_4 + 공간계획_5;
-
+        
         var 기능지원_1 = parseInt($('[name="기능지원-1"]:checked').val());
         var 기능지원_2 = parseInt($('[name="기능지원-2"]:checked').val());
         var 기능지원_3 = parseInt($('[name="기능지원-3"]:checked').val());
@@ -156,6 +200,8 @@ $(document).ready(function() {
         var 변화준비 = 변화준비_1 + 변화준비_2 + 변화준비_3 + 변화준비_4 + 변화준비_5;        
 
         var 사무환경_성숙도 = 공간계획 + 기능지원;
+
+        $('#myChart').attr("width","400").attr("height","400");
 
         $('.table-1 .test-result--point').text(사무환경_성숙도+'점');
         //$('.table-2 .test-result--point').text(변화준비+'점');
@@ -260,7 +306,34 @@ $(document).ready(function() {
         };
     });
 
-    
+    //네이버 약도
+    //지도를 삽입할 HTML 엘리먼트 또는 HTML 엘리먼트의 id를 지정합니다.
+    var mapDiv = document.getElementById('nmap'); // 'map' 으로 선언해도 동일
 
+    var map = new naver.maps.Map("nmap", {
+        center: new naver.maps.LatLng(37.502463, 127.126375),
+        zoom: 13
+    }),
+    infoWindow = null;
+
+    var marker = new naver.maps.Marker({
+    position: new naver.maps.LatLng(37.502463, 127.126375),
+    map: map
+    });
+
+    function initGeocoder() {
+        var latlng = map.getCenter();
+        var utmk = naver.maps.TransCoord.fromLatLngToUTMK(latlng); // 위/경도 -> UTMK
+        var tm128 = naver.maps.TransCoord.fromUTMKToTM128(utmk);   // UTMK -> TM128
+        var naverCoord = naver.maps.TransCoord.fromTM128ToNaver(tm128); // TM128 -> NAVER
+
+        infoWindow = new naver.maps.InfoWindow({
+            content: ''
+        });
+
+    }
+
+    naver.maps.onJSContentLoaded = initGeocoder;
 
 });
+

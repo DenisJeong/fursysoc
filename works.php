@@ -41,7 +41,7 @@
                         
                     ?>
                     <li>
-                        <div class="img-frame">
+                        <div class="img-frame2">
                             <img src="images/<?php echo $work_ex[$i]['logo']?>" alt="">
                         </div>
 
@@ -93,8 +93,6 @@
             </div>
         </div>
     </div>
-    <br>
-    <br>
 
   
 <?php include 'include/catalog.php' ?>

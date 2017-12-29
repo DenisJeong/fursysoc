@@ -74,7 +74,7 @@ if ($회사명 and $회사주소 and $성명 and $이메일 and $전화번호) {
             </div>
             <h2 style='font-size: 16px;'>자가 진단 결과</h2>
             <div style='height: 400px;'>
-                <img src='".$진단_결과_그림."' style='width: 400px; float: left;' />
+                <img alt='진단결과그래프' src='".$진단_결과_그림."' style='width: 400px; float: left; display: block;' />
                 <div style='width: 390px; float: right;'>
                     <table style='background-color: white; border-collapse: collapse; width: 100%;'>
                         <colgroup>
@@ -158,7 +158,7 @@ if ($회사명 and $회사주소 and $성명 and $이메일 and $전화번호) {
         $mail->Send();                // 실제로 메일을 보냄
 
         echo '<script>
-        alert("자가 진단 결과가 메일로 발송 완료되었습니다.");
+        alert("자가 진단 결과가 메일로 발송되었습니다.");
         history.back();
         </script>';
 
